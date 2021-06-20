@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ -f "bin/resque" ]; then
+    if [ -z "$1" ]; then
+        vendor/bin/resque work:start -c configs/resque.yml
+    else
+        vendor/bin/resque "$1" -c configs/resque.yml
+    fi
+else
+    echo "Please run in ROOT directory"
+fi

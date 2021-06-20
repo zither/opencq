@@ -1,0 +1,22 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Xian\\": "game",
+            "Workerman\\": "third/Workerman"
+        }
+    },
+    "require": {
+        "league/plates": "^3.3",
+        "catfan/medoo": "^1.7",
+        "mjphaynes/php-resque": "2.1.*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-pdo": "*",
+        "spiral/roadrunner": "^1.8",
+        "hansott/psr7-cookies": "^3.0",
+        "uma/redis-session-handler": "^0.9.7",
+        "ext-redis": "*",
+        "swow/swow": "dev-develop"
+    }
+}

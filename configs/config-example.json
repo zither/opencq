@@ -1,0 +1,15 @@
+{
+  "app_server": "php-fpm",
+  "db_host": "localhost",
+  "db_database": "game",
+  "db_user": "root",
+  "db_password": "root",
+  "redis_host": "127.0.0.1",
+  "redis_port": 6379,
+  "redis_password": "123456",
+  "debug": 0,
+  "link_encoder": "session",
+  "link_encoder_secret": "REPLACE_THIS_WITH_RANDOM_CHARS_IN_PRODUCTION_ENV",
+  "is_under_maintenance": 0,
+  "admin_id": 1
+}

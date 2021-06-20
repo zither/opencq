@@ -1,0 +1,25 @@
+http:
+  address: 127.0.0.1:8888
+  workers:
+    command: "php game/rr_worker.php"
+    pool:
+      numWorkers: 4
+      maxJobs: 1000
+limit:
+  services.http:
+    TTL: 0
+    idleTTL: 60
+    execTTL: 10
+reload:
+  enabled: false
+  interval: 1s
+  patterns: [".php"]
+  services:
+    http:
+      recursive: true
+      ignore: ["vendor"]
+      patterns: [".php", ".go",".md",]
+      dirs:     ["."]
+#static:
+#  dir: "public"
+#  forbid: [".php", ".htaccess"]
