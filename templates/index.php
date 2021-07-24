@@ -27,6 +27,6 @@
     <div class="mt">
         <a class="" type="button" href="<?=$this->_l('cmd=register')?>">
             注册帐号
-        </a> . <span class="color-green">讨论群:39387037</span>
+        </a> . <a href="https://github.com/zither/opencq">开源代码</a> . <span class="color-green">讨论群:39387037</span>
     </div>
 </div>

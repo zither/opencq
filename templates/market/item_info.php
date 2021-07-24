@@ -30,7 +30,7 @@
                 <?php endif;?>
             <?php endforeach; ?>
             <?php if (!empty($zhuangbei->quality)):?>
-                品质属性: <br/>
+                品质加成: <br/>
                 <?php foreach ($attributes as $k => $v): ?>
                     <?php if (!empty($zhuangbei->{"quality" . ucfirst($k)})) :?>
                         <div class="<?=$quality_color?>"><?=$v?>: <?=$zhuangbei->{"quality" . ucfirst($k)}?></div>
