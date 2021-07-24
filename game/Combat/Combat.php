@@ -312,13 +312,13 @@ class Combat
                 $isAttackerTargets = $effect->target == 2 || $effect->target == 0;
                 if ($isAttackerTargets) {
                     if (empty($effectedAttackers)) {
-                        $effectedAttackers = $selected = $this->selectTargets($attackers, $effect->targetNum, $effect->targetMode);
+                        $effectedAttackers = $selected = $this->selectTargets($attacker, $attackers, $effect->targetNum, $effect->targetMode);
                     } else {
                         $selected = $effectedAttackers;
                     }
                 } else {
                     if (empty($effectedDefenders)) {
-                        $selected = $this->selectTargets($defenders, $effect->targetNum, $effect->targetMode);
+                        $selected = $this->selectTargets($attacker, $defenders, $effect->targetNum, $effect->targetMode);
                     } else {
                         $selected = $effectedDefenders;
                     }
@@ -344,7 +344,7 @@ class Combat
             $attackerArgs = $this->getAttackArgs($attacker);
             // 选择防方对象
             if (empty($effectedDefenders)) {
-                $effectedDefenders = $this->selectTargets($defenders, $effect->targetNum, $effect->targetMode);
+                $effectedDefenders = $this->selectTargets($attacker, $defenders, $effect->targetNum, $effect->targetMode);
             }
 
             // 对所有目标施加效果
@@ -909,12 +909,13 @@ class Combat
     }
 
     /**
+     * @param Attacker $caster
      * @param Attacker[] $attackers
      * @param int $num
      * @param int $mode
      * @return Attacker[]
      */
-    public function selectTargets(array $attackers, int $num = 1, int $mode = 1): array
+    public function selectTargets(Attacker $caster, array $attackers, int $num = 1, int $mode = 1): array
     {
         $validAttackers = [];
         foreach ($attackers as $attacker) {
@@ -932,6 +933,9 @@ class Combat
         }
         $selected = [];
         switch ($mode) {
+            // 施法者自身
+            case 1:
+                return [$caster];
             // 全体目标
             case 3:
                 return $attackers;
